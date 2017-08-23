@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CreateAccount</title>
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+    <link href="../MyCSS/Main.css" rel="stylesheet"/>
+    <link href="../MyCSS/HeaderOfSite.css" rel="stylesheet"/>
+    <link href="../MyCSS/ForForm.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container header-of-site">
+    <div class="row">
+        <div class="col-md-6 text-left">
+            <h1>SocialNetwork</h1>
+        </div>
+        <div class="col-md-6 text-right" style="padding-top: 10px">
+            <h5>unauthorized</h5>
+            <a href="#" style="font-size: 15px;">LogOut</a>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 0px">
+
+    <form action="/CreateAccount" method="post" style="margin-top: 20px" onsubmit="return validatePhones()">
+
+        <div class="form-group">
+            <label for="avatar">Photo</label>
+            <input type="file" id="avatar" text="sdas">
+            <p class="help-block">Upload your photo</p>
+        </div>
+
+
+        <div id="Form">
+            <div class="center-block">
+
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input id="Name" name="Name" type="text" class="form-control" placeholder="Enter name">
+                </div>
+
+                <div class="form-group">
+                    <label for="Surname">Surname</label>
+                    <input id="Surname" name="Surname" type="text" class="form-control" placeholder="Enter surname">
+                </div>
+
+                <div class="form-group">
+                    <label for="MiddleName">Middle name</label>
+                    <input id="MiddleName" name="MiddleName" type="text" class="form-control"
+                           placeholder="Enter middle name">
+                </div>
+
+                <div class="form-group">
+                    <label for="DateOfBirth">Date of birth</label>
+                    <input id="DateOfBirth" name="DateOfBirth" type="text" class="form-control"
+                           placeholder="Enter date of birth">
+                </div>
+
+                <div id="1" class="form-group">
+                    <label for="PersonalPhoneNumbers">Personal phone number</label>
+                    <div class="input-group phone_param">
+                        <input id="PersonalPhoneNumbers" name="PersonalPhoneNumbers" type="text" class="form-control"
+                               placeholder="Enter personal phone number">
+                        <span class="input-group-btn">
+                                <button id="psPhoneDeleteBtn" class="btn btn-success" type="button"
+                                        onclick="javascript:removeElement([document.getElementById('PersonalPhoneNumbers'), document.getElementById('psPhoneDeleteBtn')]); return false;">Delete</button>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="WorkPhoneNumbers">Work phone number</label>
+                        <div class="input-group" style="margin-bottom:10px;">
+                            <input id="WorkPhoneNumbers" name="WorkPhoneNumbers" type="text" class="form-control"
+                                   placeholder="Enter work phone number">
+                            <span class="input-group-btn">
+                                <button id="workPhoneDeleteBtn" class="btn btn-success" type="button"
+                                        onclick="javascript:removeElement([document.getElementById('WorkPhoneNumbers'), document.getElementById('workPhoneDeleteBtn')]); return false;">Delete</button>
+                            </span>
+                        </div>
+                        <input type="button" id="addWorkNumberBtn" class="btn btn-success"
+                               style="margin-top:5px;" onclick="addWorkPhone()" value="Add phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="HomeAddress">Home address</label>
+                        <input id="HomeAddress" name="HomeAddress" type="text" class="form-control"
+                               placeholder="Enter home address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="WorkAddress">Work address</label>
+                        <input id="WorkAddress" name="WorkAddress" type="text" class="form-control"
+                               placeholder="Enter work address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input id="Email" name="Email" type="email" class="form-control" placeholder="Enter email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Password">Password</label>
+                        <input id="Password" name="Password" type="password" class="form-control"
+                               placeholder="Enter password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ICQ">ICQ</label>
+                        <input id="ICQ" name="ICQ" type="text" class="form-control"
+                               placeholder="Enter ICQ">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Skype">Skype</label>
+                        <input id="Skype" name="Skype" type="text" class="form-control"
+                               placeholder="Enter Skype">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="AddInfo">Additional info</label>
+                        <input id="AddInfo" name="AddInfo" type="text" class="form-control"
+                               placeholder="Enter additional info">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="margin-bottom:15px;">
+            <label for="UploadXML" class="btn btn-default btn-block">
+                <h>Upload XML</h>
+                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+                <input type="file" id="UploadXML" style="display:none;">
+            </label>
+        </div>
+        <div class="col-md-6" style="margin-bottom:15px;">
+            <a class="btn btn-default btn-block" id="DownloadXML" target="_blank" download="account.xml">
+                Download XML
+                <i class="glyphicon glyphicon-download"></i>
+            </a>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-block">Create account</button>
+
+    </form>
+
+</div>
+
+<script src="../JS/lib/jquery-3.2.1.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
+<script src="../JS/EditAccount.js"></script>
+
+</body>
+</html>
